@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv -e ../../.env -- next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rm -rf .next && rm -rf node_modules"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "openai": "^4.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.6",
+    "typescript": "^5.2.2",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^14.0.0"
+  }
+} 

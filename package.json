@@ -1,0 +1,23 @@
+{
+  "name": "promptly",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^8.0.0",
+    "turbo": "^1.10.16",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

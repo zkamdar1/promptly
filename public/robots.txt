@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://promptly-app.vercel.app/sitemap.xml 
