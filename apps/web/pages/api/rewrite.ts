@@ -55,11 +55,11 @@ export default async function handler(
     // Create the system prompt with instructions
     const systemPrompt = `You are Promptly, an AI prompt optimization assistant.
 
-Your job is to rewrite a user's rough prompt so that it is more effective, structured, and context-aware for use in AI systems like ChatGPT or Claude.
+Your job is to rewrite a user's rough prompt so that it is more effective, structured, and context-aware for use in AI systems like ChatGPT or Claude. Utilize your knowledge of the system to make the prompt more effective, with the goal of getting the best possible output from the AI system.
 
 Incorporate any optional instructions like task type, tone, or goal if provided.
 
-Be concise and purposeful. Only output the improved prompt, and do not explain your reasoning.`;
+Be concise and purposeful. Only output the improved prompt, and do not explain your reasoning. Do not wrap your response in commentary. Output only the final prompt.`;
 
     // Create the user message with optional fields
     let userMessage = prompt;
@@ -90,7 +90,7 @@ Be concise and purposeful. Only output the improved prompt, and do not explain y
           { role: 'user', content: userMessage }
         ],
         temperature: 0.7,
-        max_tokens: 1024,
+        max_tokens: 500,
       });
 
       // Extract the rewritten prompt from the response
