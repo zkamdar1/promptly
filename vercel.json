@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm run build",
   "ignoreCommand": "cd apps/web && node -e \"console.log(!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production' ? '' : 'ABORT_BUILD')\"",
-  "outputDirectory": "apps/web/.next",
   "framework": "nextjs"
 } 
