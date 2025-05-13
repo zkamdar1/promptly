@@ -62,6 +62,12 @@ export default function PromptForm({ onSubmit, isLoading, mode, setMode }: Promp
     e.preventDefault();
     if (!currentPrompt.trim()) return;
 
+    // Prevent submission if in buildspec mode (as it's "Coming Soon")
+    if (mode === 'buildspec') {
+      console.log("BuildSpec mode is coming soon and is currently disabled.");
+      return;
+    }
+
     let formData: EnhancerFormData | BuildSpecFormData;
     if (mode === 'enhancer') {
       formData = { prompt, task, tone, context };
@@ -73,7 +79,7 @@ export default function PromptForm({ onSubmit, isLoading, mode, setMode }: Promp
 
   const modeOptions = [
     { label: '✨ Enhancer', value: 'enhancer' },
-    { label: '🛠️ BuildSpec', value: 'buildspec' },
+    { label: '🛠️ BuildSpec (Coming Soon)', value: 'buildspec' },
   ];
 
   const currentExplanation = modeExplanations[mode];
@@ -309,7 +315,7 @@ export default function PromptForm({ onSubmit, isLoading, mode, setMode }: Promp
         <motion.button
           type="submit"
           className="btn btn-primary w-full py-3 text-lg font-medium flex items-center justify-center space-x-2"
-          disabled={isLoading || !currentPrompt.trim()}
+          disabled={isLoading || !currentPrompt.trim() || mode === 'buildspec'}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -321,7 +327,7 @@ export default function PromptForm({ onSubmit, isLoading, mode, setMode }: Promp
           ) : (
             <>
               {mode === 'enhancer' ? <FiZap className="mr-1"/> : <FiTool className="mr-1"/>}
-              <span>{mode === 'enhancer' ? 'Enhance My Prompt' : 'Generate BuildSpec'}</span>
+              <span>{mode === 'enhancer' ? 'Enhance My Prompt' : (mode === 'buildspec' ? 'Coming Soon' : 'Generate BuildSpec')}</span>
             </>
           )}
         </motion.button>
